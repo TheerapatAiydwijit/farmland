@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function createSelect() {
+  var select = document.createElement("SELECT");
+  select.setAttribute("id", "mySelect");
+  document.body.appendChild(select);
+  var items = ["ไม่มี","มี"];
+  for(var i = 0;i<items.length;i++) {
+    var item = items[i];
+    var newOption = document.createElement("option");
+    newOption.setAttribute("value", item);
+    var textNode = document.createTextNode(item);
+    newOption.appendChild(textNode);
+    select.appendChild(newOption);
+  }
+}
+    </script>
+</head>
+<body>
+    <!-- <form action="testcheckbox.php" method="post"> -->
+        <p>Click the button to create a SELECT and an OPTION element.</p>
+<button onclick="createSelect()">Try it</button>
+        <!-- <input type="hidden" id="vehicle1" name="vehicle1[]" value="0" >
+        <input type="checkbox" id="vehicle1" name="vehicle1[]">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2[]" value="2" >
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3[]" value="3" >
+        <label for="vehicle3"> I have a boat</label><br>
+
+        <input type="checkbox" id="vehicle1" name="vehicle1[]" value="1">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2[]" value="2">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3[]" value="3">
+        <label for="vehicle3"> I have a boat</label><br> -->
+
+        <!-- <input type="hidden" name="my_name[]" value="0">
+        <input type="checkbox" name="my_name[]" >
+        <input type="hidden" name="you_name[]" value="0">
+        <input type="checkbox" name="you_name[]">
+        <input type="hidden" name="my_name[]" value="0">
+        <input type="checkbox" name="my_name[]" >
+        <input type="hidden" name="you_name[]" value="0">
+        <input type="checkbox" name="you_name[]"> -->
+
+       
+       
+        
+      
+      
+        <!-- <table>
+            <tr>
+                <th>
+                    ปุ่ม
+                </th>
+                <th>
+                    คำ
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="1" name="1[]" value="1">
+                    <label for="1">1</label><br>
+                </td>
+                <td>
+                    <input type="radio" id="2" name="2[]" value="2">
+                    <label for="2">2</label><br>
+                </td>
+                <td>
+                    <input type="radio" id="3" name="3[]" value="3">
+        <label for="3">3</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="11" name="1[]" value="1">
+                    <label for="11">1</label><br>
+                </td>
+                <td>
+                    <input type="radio" id="22" name="2[]" value="2">
+                    <label for="22">2</label><br>
+                </td>
+                <td>
+                    <input type="radio" id="33" name="3[]" value="3">
+                    <label for="33">3</label><br>
+                </td>
+            </tr>
+        </table> -->
+        <!-- <input type="submit" value="OK">
+    </form> -->
+</body>
+</html>

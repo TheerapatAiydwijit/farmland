@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+/* Add styles to the form container */
+/* .form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+} */
+
+/* Full-width input fields */
+/* .form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+} */
+
+/* When the inputs get focus, do something */
+/* .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+} */
+
+/* Set a style for the submit/login button */
+/* .form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+} */
+
+/* Add a red background color to the cancel button */
+/* .form-container .cancel {
+  background-color: red; */
+/* } */
+
+/* Add some hover effects to buttons */
+/* .form-container .btn:hover, .open-button:hover {
+  opacity: 1; */
+/* } */
+    </style>
+
+        <script>
+var i=1;
+
+    $(document).ready(function(){
+        $('#myTable2').on('click', '.delect', function() {
+   $(this).parents('tr').remove();  
+  });
+});
+
+function CreateAProductList(){
+  table = document.getElementById("myTable2");
+  from =document.getElementById("From")
+  var number = table.rows.length;
+  var row = table.insertRow(number);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var Ntarget = i;
+
+var divf = document.createElement('div');
+divf.setAttribute("Class","form-popup");
+divf.setAttribute("ID",i);
+//ส่วนนี้เอาTEXTมาบวกกันเพื่อสร้างตัวแปรของชื่อ เอาไว้ใส่ในfile name=upload[ค่าi][]
+var nametoset = "upload";
+var brac = '[';
+var ket = ']';
+var bracket = '[]';
+var upload = "upload"
+var bracketi = brac+i+ket;
+var pluename = upload+bracketi+bracket;// upload + [i] + []
+//
+var file = document.createElement('input')
+file.type='file';
+file.setAttribute("multiple","multiple");
+file.name = pluename;
+
+var openForm = document.createElement('button');
+openForm.innerHTML = 'openForm';
+openForm.type = 'button';
+openForm.addEventListener("click",function(){
+  OpenForm(Ntarget);
+}, false);
+
+var closeForm = document.createElement('button');
+closeForm.innerHTML = 'closeForm';
+closeForm.type = 'button';
+closeForm.addEventListener("click",function(){
+  CloseForm(Ntarget);
+}, false);
+
+
+  var buttondelect = document.createElement('button');
+  buttondelect.innerHTML = 'ลบ';
+  buttondelect.type = 'button';
+  buttondelect.name = 'dele';
+  buttondelect.class = "form";
+  buttondelect.className ="delect";
+  divf.appendChild(file);
+  divf.appendChild(closeForm);
+  // from.appendChild(divf);
+  cell1.appendChild(openForm);
+  cell2.appendChild(buttondelect);
+
+  row.appendChild(divf);
+  // cell2.appendChild
+  i++
+
+}
+//เปิดปิดpopup
+function OpenForm(target) {
+                console.log(target);
+              document.getElementById(target).style.display = "block";
+            }
+function CloseForm(target) {
+                console.log(target);
+              document.getElementById(target).style.display = "none";
+            }
+            
+            </script>
+</head>
+<body>
+    <form action="uploadmultiple.php" method="POST" enctype="multipart/form-data" id="From">
+        <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>รหัส</th>
+              </tr>
+            </thead>
+            <tbody id="myTable">
+             
+            <tr>
+              <td><a href="#" onclick="CreateAProductList()" > เลือก</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <table>
+        <thead>
+                <tr>
+                  <th>ชื่อสินค้า</th>
+                </tr>
+            </thead>
+            <tbody id="myTable2">
+
+        </tbody>
+          </table>
+        <input type="submit" value="OK">
+        </form>
+       
+</body>
+</html>

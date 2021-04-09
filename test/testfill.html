@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function preview(filesimg) {
+        var files = filesimg.files;
+        oFiles = this.file;
+        var filesAmount = files.length;
+       const imgdiv = document.getElementById("img");
+       imgdiv.innerHTML = "";
+       console.log("เข้าฟังชั่น");
+       console.log(filesAmount);
+       for (let i = 0; i < filesAmount; i++) {
+        console.log("ลูป");
+        const img = document.createElement("img");
+        img.src = URL.createObjectURL(files[i]);
+        img.height = 60;
+        img.width=60;
+        imgdiv.appendChild(img);
+       }
+
+        // frame.src=URL.createObjectURL(event.target.files[0]);
+}
+    </script>
+</head>
+<body>
+    <form action="Testfilluplode.php" method="POST" enctype="multipart/form-data">
+        <input type="file" onchange="preview(this)" multiple name="files[]">
+        <div id="img">
+
+        </div>
+        <!-- <img id="frame" src="" width="100px" height="100px"/> -->
+        <input type="submit">
+      </form>
+</body>
+</html>
